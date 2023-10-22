@@ -1,0 +1,23 @@
+name: Angular Project CI-CD-CD
+on:
+  push:
+    branches:
+      - 'release/**'
+      - 'feature/**'
+  workflow_dispatch:
+  schedule:
+    - cron: '45 19 * * 1'   
+    - cron: '00 00 * * 1' 
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          npm install
+      - name: Test
+        run: |
+          npm run test:ci    
