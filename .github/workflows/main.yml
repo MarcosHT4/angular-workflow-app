@@ -56,6 +56,20 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: marcosht4/angular-workflow-app:latest          
+          tags: marcosht4/angular-workflow-app:latest
+  deploy_into_dev_server:
+    runs-on: ubuntu-latest
+    needs: [test, build, build_docker_image_and_push_to_docker_hub]
+    steps:
+      - name: Commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ec2-user
+          key: ${{ secrets.PRIVATE_KEY }}
+          script: |
+            sudo docker stop ANGULAR_SERVICE
+            sudo docker rm ANGULAR_SERVICE
+            sudo docker run -d -p 8080:80 --name ANGULAR_SERVICE marcosht4/angular-workflow-app:latest                    
               
 
