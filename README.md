@@ -12,7 +12,9 @@ En el presente repositorio, se encuentra el código fuente de una aplicación we
 
 Se tiene un total de 2 workflows:
 - Uno de nombre: Angular Project CI-CD, que se ocupa de los trabajos de Continuous Integration (testing) y Continous Delivery (build). Se ejecuta en tres escenarios diferentes:
-  
+
+
+  - Cuando se realiza un push a cualquier branch que empiece con el prefijo `feature/`
   - Cuando se lo ejecuta de forma manual (`workflow_dispatch`)
   - De manera automática, todos los lunes a las 15:45 y 20:00 (UTC -4)
 - Otro de nombre: Angular Project Deploy, que se ocupa del trabajo de Continuous Deployment (deploy). Se ejecuta cuando:
