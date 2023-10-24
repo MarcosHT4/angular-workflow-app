@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '45 19 * * 1'   
-    - cron: '00 45 * * 2' 
+    - cron: '50 0 * * 2' 
 
 jobs:
   test:
