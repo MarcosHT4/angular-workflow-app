@@ -5,8 +5,8 @@ on:
       - 'feature/**'
   workflow_dispatch:
   schedule:
-    - cron: '45 19 * * 1'   
-    - cron: '15 1 * * 2' 
+    - cron: '45 1 * * 1'   
+    - cron: '0 2 * * 2' 
 
 jobs:
   test:
